@@ -4,11 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
+import org.teamproject.commons.validators.MobileValidator;
 import org.teamproject.repositories.MemberRepository;
 
 @Component
 @RequiredArgsConstructor
-public class JoinValidator implements Validator {
+public class JoinValidator implements Validator, MobileValidator {
     private final MemberRepository repository;
 
     @Override
@@ -41,6 +42,13 @@ public class JoinValidator implements Validator {
 
         // 3. 휴대전화번호가 있으면 형식 체크
         String mobile = form.getMobile();
+        if (mobile != null && !mobile.isBlank()) {
+            if (!checkMobile(mobile)) { // 검증 실패시
+                errors.rejectValue("mobile", "Mobile");
+            }
 
+            mobile = mobile.replaceAll("\\D", "");
+            form.setMobile(mobile);
+        }
     }
 }

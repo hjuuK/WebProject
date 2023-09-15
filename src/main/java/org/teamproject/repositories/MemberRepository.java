@@ -10,6 +10,6 @@ public interface MemberRepository extends JpaRepository<Member, Long>, QuerydslP
     Member findByEmail(String email);
 
     default boolean exists(String email) {
-        return exists(QMember.member.eamil.eq(email));
+        return exists(QMember.member.email.eq(email));
     }
 }
