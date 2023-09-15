@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{front/layouts/main}">
 <main layout:fragment="content">
-    <from name="frmJoin" method="POST" th:action="@{/member/join}" autocomplete="off" th:object="${joinForm}">
+    <form name="frmJoin" method="POST" th:action="@{/member/join}" autocomplete="off" th:object="${joinForm}">
         <div class="error global" th:each="err : ${#fields.globalErrors()}" th:text="${err}"></div>
 
         <ul>
@@ -50,6 +50,6 @@
             </li>
         </ul>
         <button type="submit" th:text="#{btn.join}"></button>
-    </from>
+    </form>
 </main>
 </html>
