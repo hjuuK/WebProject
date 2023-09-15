@@ -27,6 +27,20 @@ public class JoinValidator implements Validator {
          */
 
         // 1. 아이디(이메일) 중복 여부 체크
+        String email = form.getEmail();
+        if (email != null && !email.isBlank() && repository.exists(email)) {
+            errors.rejectValue("email", "Duplicated");
+        }
+
+        // 2. 비밀번호와 비밀번호확인 일치 여부 체크
+        String userPw = form.getUserPw();
+        String userPwRe = form.getUserPwRe();
+        if (userPw != null && !userPw.isBlank() && userPwRe != null && !userPwRe.isBlank() && !userPw.equals(userPwRe)) {
+            errors.rejectValue("userPwRe", "mismatch");
+        }
+
+        // 3. 휴대전화번호가 있으면 형식 체크
+        String mobile = form.getMobile();
 
     }
 }
