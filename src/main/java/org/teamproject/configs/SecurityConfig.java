@@ -9,6 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.teamproject.models.member.LoginFailureHandler;
+import org.teamproject.models.member.LoginSuccessHandler;
 
 @Configuration
 public class SecurityConfig {
