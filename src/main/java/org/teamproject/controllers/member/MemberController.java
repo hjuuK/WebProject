@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.teamproject.commons.CommonProcess;
 import org.teamproject.commons.Utils;
 import org.teamproject.models.member.UserSaveService;
 
 @Controller
 @RequestMapping("/member")
 @RequiredArgsConstructor
-public class MemberController {
+public class MemberController implements CommonProcess {
     private final UserSaveService saveService;
     private final Utils utils;
 
