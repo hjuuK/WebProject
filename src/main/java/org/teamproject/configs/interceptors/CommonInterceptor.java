@@ -15,6 +15,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class CommonInterceptor implements HandlerInterceptor {
 
+    private final ConfigInfoService infoService;
     private final HttpServletRequest request;
 
     @Override
