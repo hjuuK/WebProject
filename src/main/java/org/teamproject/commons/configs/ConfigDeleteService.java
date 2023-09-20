@@ -2,6 +2,8 @@ package org.teamproject.commons.configs;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.teamproject.entities.Configs;
+import org.teamproject.repositories.ConfigsRepository;
 
 @Service
 @RequiredArgsConstructor
